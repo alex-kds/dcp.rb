@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'dcp.rb'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.summary     = "DCP utilities for Ruby"
   s.description = "A gem which provides message signing functionality for DCP messages in Ruby. May be updated with more functionality in future."
   s.authors     = ["Alex Huctwith"]
