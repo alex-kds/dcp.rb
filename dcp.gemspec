@@ -7,8 +7,9 @@ Gem::Specification.new do |s|
   s.email       = 'alex@kingsds.network'
   s.files       = ["lib/dcp.rb"]
   s.homepage    =
-    'https://rubygems.org/gems/dcp.rb'
+    'https://github.com/alex-kds/dcp.rb'
   s.license       = 'MIT'
+
 
   s.add_runtime_dependency("eth", "~> 0.4")
   s.add_runtime_dependency("httparty", "~> 0.18")
