@@ -10,7 +10,6 @@ Gem::Specification.new do |s|
     'https://github.com/alex-kds/dcp.rb'
   s.license       = 'MIT'
 
-
-  s.add_runtime_dependency("eth", "~> 0.4")
+  s.add_runtime_dependency("eth", "~> 0.5")
   s.add_runtime_dependency("httparty", "~> 0.18")
 end
