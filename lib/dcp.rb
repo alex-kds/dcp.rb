@@ -16,11 +16,11 @@ class DCP
     }.to_json
 
     message = {signedMessage: message_string}
-    
+
     response = HTTParty.post(ENV['PROXY_URL'], body: message)
     reply_body = response.body
     reply = JSON.parse reply_body
-    
+
     unless reply['success']
       Rails.logger.error "Proxy service returned error #{reply['error']}"
     end
@@ -30,17 +30,17 @@ class DCP
 
   def self.sign(key, body)
     sig = key.personal_sign body.to_json
-    bin_sig = Eth::Utils.hex_to_bin(sig).bytes.rotate(-1).pack('c*')
+    r,s,v = Eth::Signature.dissect sig
     {
       r: {
         type: "Buffer",
-        data: bin_sig[1..32].bytes
+        data: Eth::Util.hex_to_bin(r).bytes
       },
       s: {
         type: "Buffer",
-        data: bin_sig[33..65].bytes
+        data: Eth::Util.hex_to_bin(s).bytes
       },
-      v: bin_sig[0].bytes[0]
+      v: Eth::Util.hex_to_bin(v).bytes
     }
   end
 end
